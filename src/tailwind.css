@@ -117,5 +117,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 
+@utility flex-center {
+  @apply flex justify-center items-center;
 }

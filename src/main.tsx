@@ -1,19 +1,14 @@
+import "./tailwind.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./tailwind.css";
-import App from "./App.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router";
-import { Layout } from "@/components/Layout.tsx";
-
-const router = createBrowserRouter([
-  {
-    Component: Layout,
-    children: [{ index: true, Component: App }],
-  },
-]);
+import { RouterProvider } from "react-router";
+import { ThemeProvider } from "@/components/providers/theme-provider.tsx";
+import { router } from "@/routes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>
 );
