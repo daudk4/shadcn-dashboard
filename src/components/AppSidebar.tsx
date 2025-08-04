@@ -29,6 +29,7 @@ import {
   ChevronUp,
   Home,
   Inbox,
+  Info,
   Plus,
   Projector,
   Search,
@@ -158,7 +159,7 @@ export const AppSidebar = () => {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <Link to={"/"}>
-                      <About  About Us
+                        <Info /> About Us
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
