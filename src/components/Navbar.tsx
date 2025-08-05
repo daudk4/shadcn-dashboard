@@ -48,7 +48,7 @@ export const Navbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger className="rounded-full">
             <Avatar>
-              <AvatarImage src="/public/logo.svg" />
+              <AvatarImage src="/logo.svg" />
               <AvatarFallback>DK</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>

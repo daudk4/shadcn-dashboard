@@ -19,8 +19,12 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import {
@@ -37,6 +41,7 @@ import {
   User2,
   type LucideIcon,
 } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 type SidebarItem = {
@@ -82,7 +87,7 @@ export const AppSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link to={"/"}>
-                <img src="/public/logo.svg" alt="logo" width={30} height={30} />
+                <img src="/logo.svg" alt="logo" width={30} height={30} />
                 <span>Da'wood</span>
               </Link>
             </SidebarMenuButton>
@@ -106,11 +111,15 @@ export const AppSidebar = () => {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
+                  {item.title === "Inbox" && (
+                    <SidebarMenuBadge>24</SidebarMenuBadge>
+                  )}
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
         {/*Sidebar-Group-Action */}
         <SidebarGroup>
           <SidebarGroupLabel>Projects</SidebarGroupLabel>
@@ -137,6 +146,7 @@ export const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
         {/*Collapsible-Sidebar-Group */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
@@ -168,6 +178,42 @@ export const AppSidebar = () => {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
+
+        {/*NESTED-Sidebar-Menu-Sub */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link to={"/"}>
+                    <Projector /> See All Projects
+                  </Link>
+                </SidebarMenuButton>
+                <SidebarMenuSub>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild>
+                      <Link to={"/"}>
+                        <Plus />
+                        Add Project
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                </SidebarMenuSub>
+                <SidebarMenuSub>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild>
+                      <Link to={"/"}>
+                        <Plus />
+                        Add Category
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                </SidebarMenuSub>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
 
       {/*Sidebar-Footer */}
